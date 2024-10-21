@@ -1,0 +1,7 @@
+*.o
+lru-sequential
+lru-mutex
+lru-fine
+/lab/
+/sol/
+/results/
