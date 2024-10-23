@@ -10,8 +10,6 @@
 #define MAX_KEY 128
 #define LOW_WATER_MARK 32
 #define HIGH_WATER_MARK 96
-// Uncomment this line for debug printing
-//#define DEBUG 1
 
 /* Optional init routine.  May not be required.
  * Returns 0 on success, -errno on failure.

@@ -1,6 +1,6 @@
 all: lru-sequential lru-mutex lru-fine lru-fine-thread-sanitizer
 
-CFLAGS = -g -Wall -Werror -pthread
+CFLAGS += -g -Wall -Werror -pthread
 
 %.o: %.c *.h
 	gcc $(CFLAGS) -c -o $@ $<
@@ -16,6 +16,10 @@ lru-fine: main.c fine-lru.o
 
 lru-fine-thread-sanitizer: main.c fine-lru.c
 	clang -fsanitize=thread -fsanitize-blacklist=.ignore.txt -g -O0 fine-lru.c main.c -o lru-fine-thread-sanitizer
+
+check-format: mutex-lru.c fine-lru.c
+	clang-format --dry-run -Werror mutex-lru.c
+	clang-format --dry-run -Werror fine-lru.c
 
 update:
 	git checkout main
